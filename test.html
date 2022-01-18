@@ -1,0 +1,367 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>some js stuff</title>
+<meta name="description">
+<meta name="keywords" content="template">
+</head>
+<body>
+	content
+</body>
+</html>
+
+
+
+<script>
+
+	console.log("hello world")
+
+	var a = 10;
+
+	a = a + 1;
+
+	console.log(a)
+
+	var capitalizeMATTERS; // js is case-sensitve
+
+	var sum = 10 + 10;
+
+	console.log(sum)
+
+	var difference = 45-25;
+
+	var multiplication = 3 * 8;
+
+	var divide = 60 / 12;
+
+	var increment = 87;
+
+	increment = increment + 1;
+
+	increment++;
+
+	var decrement = 10;
+
+	decrement = decrement - 1;
+
+	decrement--;
+
+	var decimal = 5.7;
+
+	var decimals_m = 2.4 * 2.1;
+
+	console.log(decimals_m)
+
+	var remainder = 11 % 3; // remainder
+
+	a -= 1
+
+	var mystr = "quotes \" inside str \*"
+
+	mystrLength = mystr.length;
+
+	console.log(mystrLength)
+
+	lastletter = mystr[mystrLength - 1];
+
+	firstletter = mystr[0]
+
+	console.log(firstletter)
+
+	// madlibs
+
+
+	function wordBlanks(myAdjective, myNoun, myVerb, myAdverb) {
+
+		var result = "";
+
+		result += "the " + myAdjective + " " + myNoun + " " + myVerb + " " + myAdverb
+
+
+		return result;
+	}
+
+	console.log(wordBlanks("big", "dog", "barks", "smoothly"));
+	console.log(wordBlanks("huge", "bike", "rode", "quickly"));
+
+
+	var ourArray = ["john", 23]
+
+	ourArray[1] = 27 // change value
+
+	console.log(ourArray);
+
+
+	function trueOrFalse(arg){
+		if (arg){
+			return 'its true';
+		}
+		return 'its false';
+	}
+
+	console.log(trueOrFalse(true));
+
+	function testequal(val){
+
+		if (val == 12){
+			return "equal";
+		}
+		return "not equal";
+	}
+
+	console.log(testequal(12));
+
+	function teststrict(arg){
+
+		if (arg === '10'){
+			return 'equal';
+		}return 'not equal'
+	}
+
+	// == it supports type conversion so 10 will be equal to '10'
+
+
+	// === here it doesnt support type conversion, so 10 wont be equal to '10'
+
+
+	console.log(teststrict(10))
+
+
+	// switch case'y -- dajemy jakis przypadek jak val i w tym wypadku daje beta
+
+
+	function caseInSwitch(val){
+		var answer="";
+		switch(val){
+			case 1:
+				answer = "alpha";
+				break;
+			case 2:
+				answer = "beta";
+				break;
+			default:
+				answer = "difolt";   // zwróci jako default gdy nie będzie odpowiedniego argumentu
+				break;
+		}
+
+		return answer;
+
+	}
+
+	console.log(caseInSwitch(2));
+
+
+	// js objects
+
+	var myDog = {
+		name: "Camper",
+		legs: 4,
+		tails: 1,
+		friends: ["everything!"]
+
+	};
+
+
+	// acces dot notation
+
+	var dogName = myDog.name;
+	var dogLegs = myDog.legs
+
+	console.log('HERE', myDog.name)
+
+
+	// or
+
+
+	var dogName = myDog['name'];
+	var dogLegs = myDog['legs'];
+
+	//check if has property
+
+
+	function checkObj(checkprop) {
+
+		if (myDog.hasOwnProperty(checkprop)){
+			return myDog[checkprop];
+		} else {
+			return "not found"
+		}
+	}
+
+
+	console.log(checkObj("hello"));
+
+
+ var myMusic = [     //myMusic array
+
+	{
+		"artist": "axl rose",
+		"title": "hehhe",
+		"formats": [
+			"cd",
+			"dvd"
+		],
+		"gold": true
+
+	},
+	{
+		"artist": "hetfield",
+		"title": "hehhe",
+		"formats": [
+			"cd",
+			"dvd"
+		],
+		"gold": false
+
+	},
+
+];
+
+
+var myStorage = {
+
+	"car": {
+		"inside": {
+			"glove box": "maps",
+			"passenger seat": "crumbs"
+		},
+
+	"outside": {
+		"trunk": "jack"
+	}
+	}
+
+};
+var gloveBoxContents = myStorage.car.inside["glove box"]
+
+console.log(gloveBoxContents);
+
+var myObj = {
+
+	name: 'nejm',
+	surname: 'surnejm'
+}
+
+
+console.log(myObj);
+
+console.log(myStorage, myMusic);
+	
+
+for(let step = 0; step < 5; step++) {
+	console.log('step ' + step)
+}
+
+
+// accessing nested objects
+
+var xd = myStorage.car.inside['glove box'];
+
+console.log(xd)
+
+
+// access nested arrays
+
+var myPlants = [
+	{
+		type:"flowers",
+		list: [
+			"rose",
+			"tulip"
+
+
+		]
+
+	},
+	{
+		type: "trees",
+		list: [
+			"fir",
+			"pine",
+			"birch"
+
+
+		]
+
+	}
+
+
+];
+
+
+var secondTree = myPlants[1].list[1];
+
+console.log(secondTree)
+
+
+// explanation of => foreach and each
+
+var foo = ['a', 'ab', 'abc'];
+
+var bar = foo.map(f => f.length);
+
+console.log(bar);
+
+// instead of
+
+var bar = foo.map(function(f) {
+  return f.length;
+});
+
+console.log(bar);  // result ll be the same
+
+
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+//$( "li" ).each(function() {
+  //$( this ).addClass( "foo" );
+//});
+
+
+// callback
+
+myCallback = function() {
+	console.log('this is callback')
+}
+
+
+function someFunction(callback) {
+	console.log(callback);
+
+	// some content
+	callback();
+}
+
+const b = function() {
+	console.log('something b');
+}
+
+someFunction(myCallback);
+
+
+function logA(callback) {
+	setTimeout(() => {
+		console.log('a after 5 second');
+		const test = {
+			test: 'value'
+		}
+		callback(test);
+	}, 5000)
+}
+
+
+function callbackToA(xd){
+	console.log('logging after a')
+  console.log(xd);
+}
+
+logA(callbackToA)
+
+
+</script> 
+
