@@ -350,7 +350,7 @@ function logA(callback) {
 		const test = {
 			test: 'value'
 		}
-		callback(test);
+		callback(test); // <------
 	}, 5000)
 }
 
@@ -361,6 +361,239 @@ function callbackToA(xd){
 }
 
 logA(callbackToA)
+
+
+var collection = {
+	"123" : {
+		"album": "slippery when wet",
+		"artist": "bon jovi",
+		"tracks": [
+		"let it rock",
+		"you give love a bad name"
+		]
+	},
+	"1234" : {
+		"album": "1999",
+		"artist": "prince",
+		"tracks": [
+		"1999",
+		"little red corvette"
+		]
+	}
+}
+
+// make copy of the collection object
+var collectioncopy = JSON.parse(JSON.stringify(collection));
+
+
+function  updateRecords(id, prop, value){
+	if (value=="") {
+		delete collection[id][prop];
+	} else if (prop === "tracks") {
+		collection[id][prop] = collection[id][prop] || [] // ~~ get_or_create 
+		collection[id][prop].push(value)
+	} else {
+		collection[id][prop] = value;
+	}
+
+	return collection
+}
+
+
+updateRecords(123, "tracks", "test track")
+console.log(updateRecords(1234, "artist", "abba"))
+
+
+var myArray = [];
+var i = 0;
+
+while(i < 5) {
+	myArray.push(i);
+	i++;
+
+}
+
+console.log(myArray);
+
+
+let nextArray = [];
+
+for (var i=0; i < 5; i++){
+	nextArray.push(i);
+}
+
+
+for (let i=1; i < 10; i+=2){
+	console.log(i);
+}
+
+
+const nextArray1 = [9, 10, 11, 12];
+let total = 0;
+
+
+for (let i=0; i<nextArray1.length; i++){
+	total += nextArray1[i];
+}
+
+console.log(total);
+
+
+const nextArray2 = [1, 11, 2, 22, 33];
+let total2 = 0;
+
+for (let i=0; i < nextArray2.length; i++){
+	total2 += nextArray2[i]
+}
+
+console.log(total2);
+
+
+function multiplyAll(arr){
+	let product = 1;
+	for (let i=0; i<arr.length; i++){
+		for (let j=0; j<arr[i].length; j++){
+			 product *= arr[i][j];
+		}
+	}
+
+
+	return product
+}
+
+
+var product = multiplyAll([[1, 2], [3, 4], [4, 5], [5, 6]]);
+
+console.log(product);
+
+
+// do while loop
+
+
+let nextArray3 = [];
+var i = 10;
+
+
+do {
+	nextArray3.push(i);
+	i++;
+} while (i < 5)
+
+console.log(i, nextArray3)
+
+
+// lookup
+
+var contacts = [
+	{
+		"firstName": "firstname",
+		"lastName": "lastname",
+		"number": "1111",
+		"likes": ["pizza", "coding", "brownie"]
+	},
+	{
+		"firstName": "firstname2",
+		"lastName": "lastname2",
+		"number": "222",
+		"likes": ["xd", "xddd", "xddd"]
+	},
+	{
+		"firstName": "firstname2",
+		"lastName": "lastname",
+		"number": "3333",
+		"likes": ["spaghetti", "123", "tiramisu"]
+	}
+]
+
+
+function lookUpProfile(name, prop){
+	for(let i=0; i<contacts.length; i++){
+		if (contacts[i].firstName == name){
+			return contacts[i][prop] || "no such property"
+		}
+	}
+	return "no such contact";
+}
+
+var data = lookUpProfile("firstname2", "likes")
+
+console.log(data)
+
+
+function randomFraction(){
+
+
+	return Math.random();
+}
+
+console.log(randomFraction());
+
+
+var randomBetween0and19 = Math.floor(Math.random() * 20);
+
+function randomWholeNum(){
+
+
+	return Math.floor(Math.random() * 10);
+}
+
+console.log(randomWholeNum());
+
+
+
+function ourRandomRange(min, max){
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+var randomrange = ourRandomRange(10, 99);
+
+console.log(randomrange);
+
+
+function convertToInt(str){
+	return parseInt(str);
+
+}
+
+
+console.log(convertToInt("55")); 
+console.log(convertToInt("speciallyputthatarg")); // return Nan
+
+
+
+function converttoInteger(str){
+	return parseInt(str, 2)
+
+}
+
+
+console.log(converttoInteger("10011"));
+
+
+// conditional ternary operator 
+
+// condition ? statement-if-true : statement-if-false
+
+function checkEqual(a, b){
+	return a == b ? true : false
+}
+
+
+console.log(checkEqual(2, 3));
+
+
+
+function checkSign(num){
+
+
+	return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
+
+}
+
+console.log(checkSign(0));
+
+
 
 
 </script> 
